@@ -12,7 +12,7 @@ I should be able to log work for multiple streaks at once
 
 I should be able to see stats on a streak
 
-I should be able to see messages associated with streak dates
+I should be able to see comments associated with streak dates
 
 CLI arguments should mimic git API where applicable for ease of use
 
@@ -27,7 +27,10 @@ CLI arguments should mimic git API where applicable for ease of use
         start_date DATE NOT NULL,
         init_count INTEGER DEFAULT 1,
         current_streak INTEGER DEFAULT 1,
+        current_streak_start_date DATE NOT NULL,
         longest_streak INTEGER DEFAULT 1,
+        longest_streak_start_date DATE NOT NULL,
+        longest_streak_end_date DATE
     )
 
     CREATE TABLE entry (
@@ -69,4 +72,5 @@ CLI arguments should mimic git API where applicable for ease of use
         Congratulations! You started a new streak named {name}!
         This streak has been going for {streak_init_count} day(s)!
         ')
+
 

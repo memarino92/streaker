@@ -1,4 +1,4 @@
-## Streaker
+# Streak-er
 
 ## User Story
 
@@ -18,11 +18,12 @@ CLI arguments should mimic git API where applicable for ease of use
 
 ## Data Structure
 
-# TABLES:
+### TABLES:
 
     CREATE TABLE streak (
         id INTEGER PRIMARY KEY NOT NULL,
         name TEXT NOT NULL,
+        description TEXT,
         init_date DATE NOT NULL,
         start_date DATE NOT NULL,
         init_count INTEGER DEFAULT 1,
@@ -41,11 +42,12 @@ CLI arguments should mimic git API where applicable for ease of use
         FOREIGN KEY(streak_id) REFERENCES streak(id)
     )
 
-# METHODS/FUNCTIONS:
+#### METHODS/FUNCTIONS:
 
-    __init__streak__(name, streak_init_count=1, longest_streak=1, comment):
+    __init_streak__(name, streak_init_count=1, longest_streak=1, comment):
         ## to do:
-            verify longest_streak >= streak_init_count
+            ## verify longest_streak >= streak_init_count
+            ## insert description variable
 
         streak_init_date = Datetime.now()
         current_streak = streak_init_count
@@ -69,7 +71,7 @@ CLI arguments should mimic git API where applicable for ease of use
         )
 
         print(f'
-        Congratulations! You started a new streak named {name}!
+        Congratulations! You started a new streak named "{name}"!
         This streak has been going for {streak_init_count} day(s)!
         ')
 
